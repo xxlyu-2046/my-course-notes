@@ -140,8 +140,7 @@ per-channel weights + per-layer activations + 非对称量化，取得最佳效�
 - per-channel 量化可以提供很好的准确率，可以成为训练后量化的baseline。配合非对称量化接近于浮点数的准确率。
 
 - activations可以几乎无损量化到8bit。activations的动态范围很小的原因是：
-
-- - 不带scale的Batch normalization：使得所有activations都处于zero mean and unit variance分布。
+  - 不带scale的Batch normalization：使得所有activations都处于zero mean and unit variance分布。
   - ReLU6：把activations限制在（0,6）的范围，剔除范围之外的数
 
 - 参数量较大的网络如ResNets和Inceptions比参数量较小的网络如MobileNets对量化更鲁棒
@@ -152,7 +151,7 @@ per-channel weights + per-layer activations + 非对称量化，取得最佳效�
 
 <u>对weights做per-layer量化造成的精度损失主要原因是batch normalization，使得同一layer的不同kernel之间的动态范围差异过大。per-channel量化可以规避这个问题。</u>详见Appendix A。但是activations仍然是per-layer量化。
 
-weight正则化的方法也可以提高量化精度。详见论文《A quantizationfriendly separable convolution for mobilenets》
+weight正则化的方法也可以提高量化精度。详见论文《A quantization friendly separable convolution for mobilenets》
 
 ## 量化感知训练 Quantization Aware Training 
 
