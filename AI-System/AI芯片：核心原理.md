@@ -1848,7 +1848,7 @@ Question?
 
 - Tensor Core 一次4x4这么小的kernel，怎么处理 input image 224*224，kernel 7 * 7 的GEMM？
 
-- 怎么处理 Transformer 结构 input embedding 2048*2048，hidden size 1024*1024 的GEMM？
+- 怎么处理 Transformer 结构 input embedding $2048*2048$，hidden size $1024*1024$ 的GEMM？
 
 
 
@@ -2216,7 +2216,7 @@ NVLink 连接
 
 ![image-20230611051112053](./assets/image-20230611051112053.png)
 
-• IBM 将 NVLink 1.0 添加到他们基于 P ower8+ 微架构的 Power 处理器上， 这一举措使得 P100 可以直接通过 N VLink 于 CPU 相连，而无需通过 PCI e。通过与最近的 power8+ CPU 相连， 4GPU 的节点可以配置成一种全连接 的 mesh 结构。
+• IBM 将 NVLink 1.0 添加到他们基于 Power8+ 微架构的 Power 处理器上， 这一举措使得 P100 可以直接通过 NVLink 于 CPU 相连，而无需通过 PCIe。通过与最近的 power8+ CPU 相连， 4GPU 的节点可以配置成一种全连接 的 mesh 结构。
 
 <img src="./assets/image-20230611051303970.png" alt="image-20230611051303970" style="zoom:50%;" />
 
@@ -2488,9 +2488,9 @@ DOJO 向量和矩阵执行，放置在标量执行引擎之后，并且有两个
 
 #### 5.1.2.4. NOC路由
 
-<img src="./assets/image-20230712203428914.png" alt="image-20230712203428914" style="zoom:40%;" />
+每个节点都连接到一个2D网格
 
-- 每个节点都连接到一个2D网格
+<img src="./assets/image-20230712203428914.png" alt="image-20230712203428914" style="zoom:40%;" />
 
 #### 5.1.2.5. 计算单元与 SRAM/NoC 数据交互
 
